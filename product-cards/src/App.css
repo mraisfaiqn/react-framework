@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+:root {
+  font-family: "Smooch Sans", sans-serif;
+  line-height: 1.5; 
+  font-weight: 400;
+  background-color: #ffffff;
+  color: #1d1d1f;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Section Layout */
+.product-section {
+  position: relative;
+  padding: 20px 0;
+}
+
+.section-heading {
+  font-size: 28px;
+  font-weight: 600;
+  color: #6e6e73;
+  margin-bottom: 24px;
+}
+
+.highlight-text {
+  color: #1d1d1f;
+}
+
+/* Carousel Control & Wrapper */
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.scroll-container {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 4px 20px 4px;
+  width: 100%;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome/Safari */
+}
+
+/* Product Card Design */
+.product-card {
+  flex: 0 0 320px; /* Base card width matching the image layout */
+  height: 450px;
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+  padding: 30px 30px 10px 30px;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+}
+
+.card-tagline {
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.card-image-wrapper {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 20px 20px 20px;
+}
+
+.card-image {
+  max-width: 90%;
+  max-height: 170px;
+  object-fit: contain;
+}
+
+/* Navigation Arrow Button */
+.scroll-button {
+  position: absolute;
+  right: 15px;
+  top: calc(50% - 10px);
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(210, 210, 215, 0.64);
+  border: none;
+  color: #1d1d1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background-color 0.2s ease;
+}
+
+.scroll-button:hover {
+  background-color: rgba(210, 210, 215, 0.9);
+}
+
+/* Responsive Scaling tweaks */
+@media (max-width: 768px) {
+  .product-card {
+    flex: 0 0 280px;
+    height: 400px;
+  }
+  .section-heading {
+    font-size: 24px;
+  }
+  .scroll-button {
+    display: none; /* Rely on native swipe patterns for smaller views */
+  }
+}
