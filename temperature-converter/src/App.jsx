@@ -24,7 +24,7 @@ function App() {
     <>
       <Converter
         resultCelsius={celsius}
-        resultFarenheit={farenheit}
+        resultFarenheit={farenheit} 
         image={Thermostat}
         symbol={Convert}
         onCelsiusChange={handleCelsiusChange}
