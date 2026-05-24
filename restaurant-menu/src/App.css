@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Oswald:wght@200..700&display=swap');
+
+/* ─── Reset ───────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Root / Global ───────────────────────────────────────────────────────── */
+:root {
+  font-family: "Oswald", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #ffbf00;
+  color: #1d1d1f;
+}
+
+body {
+  padding: 0 32px 64px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ─── Restaurant Header ───────────────────────────────────────────────────── */
+.header-section {
+  padding: 48px 0 36px;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* h1 — restaurant name (may contain a <span.highlight-text> for "Mo's") */
+.restaurant-name {
+  font-size: 3.6rem;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  line-height: 1;
+}
+
+/* The Londrina Outline display treatment on the brand word */
+.highlight-text {
+  font-family: "Londrina Outline", sans-serif;
+  font-size: 3.8rem;
+}
+
+/* Tagline <p> */
+.restaurant-tagline {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.4px;
+  opacity: 0.72;
+}
+
+/* Star emoji string <p> */
+.star-rating {
+  font-size: 1.25rem;
+  letter-spacing: 3px;
+  margin-top: 2px;
+}
+
+/* Cuisine type <p> — pill badge style */
+.cuisine-type {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: #1d1d1f;
+  color: #ffbf00;
+  padding: 4px 14px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+/* ─── Menu Section ────────────────────────────────────────────────────────── */
+.menu-section {
+  margin-top: 8px;
+}
+
+/* Row containing the heading + filter control */
+.menu-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.menu-heading {
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+
+/* ─── Filter Dropdown ─────────────────────────────────────────────────────── */
+.filter-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.filter-select {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  background: #1d1d1f;
+  color: #ffbf00;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 18px 6px 14px;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.filter-select option {
+  background: #1d1d1f;
+  color: #ffbf00;
+}
+
+/* ─── Carousel Wrapper ────────────────────────────────────────────────────── */
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.scroll-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 8px 4px 24px;
+  width: 100%;
+  scrollbar-width: none;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scroll-right arrow button */
+.scroll-button {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-60%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(210, 210, 215, 0.72);
+  border: none;
+  color: #1d1d1f;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.2s ease;
+}
+
+.scroll-button:hover {
+  background: rgba(210, 210, 215, 0.95);
+}
+
+/* ─── Product Card ────────────────────────────────────────────────────────── */
+.product-card {
+  flex: 0 0 300px;
+  height: 460px;
+  border-radius: 24px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
+}
+
+/* Photo — top 45% of the card, covers the space */
+.card-image-wrapper {
+  width: 100%;
+  height: 200px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text body — fills remaining card height */
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px 20px 20px;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  line-height: 1.3;
+}
+
+/* Vegetarian / spicy emoji tags — inline after the name */
+.diet-tag {
+  font-size: 0.95rem;
+}
+
+/* Description */
+.card-tagline {
+  font-size: 0.76rem;
+  line-height: 1.45;
+  opacity: 0.72;
+  /* Clamp to 3 lines so cards stay uniform height */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ─── Card Footer (price + order button) ─────────────────────────────────── */
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+.card-price {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.order-button {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: #1d1d1f;
+  color: #ffbf00;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.order-button:hover {
+  background: #3a3a3c;
+}
+
+.order-button:active {
+  transform: scale(0.96);
+}
+
+/* ─── MenuCategory (used in MenuApp.jsx) ─────────────────────────────────── */
+.menu-app-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin-top: 16px;
+}
+
+.menu-category {
+  width: 100%;
+}
+
+.category-heading {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.3px;
+  margin-bottom: 16px;
+  border-left: 5px solid #1d1d1f;
+  padding-left: 12px;
+}
+
+/* Grid layout for category items (wraps, not a carousel) */
+.category-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* ─── Empty State ─────────────────────────────────────────────────────────── */
+.empty-state {
+  font-size: 0.95rem;
+  font-weight: 400;
+  opacity: 0.6;
+  padding: 24px 0;
+  font-style: italic;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  body {
+    padding: 0 16px 48px;
+  }
+
+  .restaurant-name {
+    font-size: 2.6rem;
+  }
+
+  .highlight-text {
+    font-size: 2.8rem;
+  }
+
+  .product-card {
+    flex: 0 0 260px;
+    height: 420px;
+  }
+
+  .card-image-wrapper {
+    height: 160px;
+  }
+
+  .scroll-button {
+    display: none;
+  }
+
+  .category-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
